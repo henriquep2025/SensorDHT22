@@ -17,33 +17,66 @@ client.connect({
   }
 });
 
-const led = document.getElementById('status-led');
-const texto = document.getElementById('status-texto');
-const btnLigar = document.getElementById('btn-ligar');
-const btnDesligar = document.getElementById('btn-desligar');
+// ---------------- ELEMENTOS DO LED VERDE ----------------
+const ledVerde = document.getElementById('status-led-verde');
+const textoVerde = document.getElementById('status-texto-verde');
+const btnLigarVerde = document.getElementById('btn-ligar-verde');
+const btnDesligarVerde = document.getElementById('btn-desligar-verde');
 
-btnLigar.addEventListener('click', () => {
-  led.classList.remove('desligado');
-  led.classList.add('ligado');
-  texto.textContent = 'LIGADO';
+// ---------------- ELEMENTOS DO LED AZUL ----------------
+const ledAzul = document.getElementById('status-led-azul');
+const textoAzul = document.getElementById('status-texto-azul');
+const btnLigarAzul = document.getElementById('btn-ligar-azul');
+const btnDesligarAzul = document.getElementById('btn-desligar-azul');
 
-  enviarComando('LIGAR');
+// EVENTOS - LED VERDE
+btnLigarVerde.addEventListener('click', () => {
+  ledVerde.classList.remove('desligado');
+  ledVerde.classList.add('ligado');
+  textoVerde.textContent = 'LIGADO';
+
+  enviarComando('verde', 'LIGAR');
 });
 
-btnDesligar.addEventListener('click', () => {
-  led.classList.remove('ligado');
-  led.classList.add('desligado');
-  texto.textContent = 'DESLIGADO';
+btnDesligarVerde.addEventListener('click', () => {
+  ledVerde.classList.remove('ligado');
+  ledVerde.classList.add('desligado');
+  textoVerde.textContent = 'DESLIGADO';
 
-  enviarComando('DESLIGAR');
+  enviarComando('verde', 'DESLIGAR');
 });
 
-function enviarComando(valor) {
+// EVENTOS - LED AZUL
+btnLigarAzul.addEventListener('click', () => {
+  ledAzul.classList.remove('desligado');
+  ledAzul.classList.add('ligado');
+  textoAzul.textContent = 'LIGADO';
+
+  enviarComando('azul', 'LIGAR');
+});
+
+btnDesligarAzul.addEventListener('click', () => {
+  ledAzul.classList.remove('ligado');
+  ledAzul.classList.add('desligado');
+  textoAzul.textContent = 'DESLIGADO';
+
+  enviarComando('azul', 'DESLIGAR');
+});
+
+// FUNÇÃO DE ENVIO COM A NOVA ESTRUTURA JSON
+function enviarComando(corLed, estado) {
   if (client.isConnected()) {
-    const payload = JSON.stringify({ comando: valor });
+    // Monta o JSON com a cor e o estado desejado
+    const payload = JSON.stringify({ 
+      led: corLed, 
+      estado: estado 
+    });
+    
     const message = new Paho.MQTT.Message(payload);
     message.destinationName = topico;
     client.send(message);
+
+    console.log(`Comando enviado -> LED: ${corLed}, Estado: ${estado}`);
   } else {
     console.warn("MQTT ainda não está conectado!");
   }

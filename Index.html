@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +12,30 @@
   <div class="container">
     <h2>Controle da Placa</h2>
 
-    <div id="status-led" class="led desligado">
-      <span id="status-texto">DESLIGADO</span>
+    <!-- CONTROLE DO LED VERDE -->
+    <div class="led-card">
+      <h3>LED Verde</h3>
+      <div id="status-led-verde" class="led desligado">
+        <span id="status-texto-verde">DESLIGADO</span>
+      </div>
+      <div class="botoes-container">
+        <button id="btn-ligar-verde" class="btn btn-ligar">Ligar</button>
+        <button id="btn-desligar-verde" class="btn btn-desligar">Desligar</button>
+      </div>
     </div>
 
-    <div class="botoes-container">
-      <button id="btn-ligar" class="btn btn-ligar">Ligar</button>
-      <button id="btn-desligar" class="btn btn-desligar">Desligar</button>
+    <!-- CONTROLE DO LED AZUL -->
+    <div class="led-card">
+      <h3>LED Azul</h3>
+      <div id="status-led-azul" class="led desligado">
+        <span id="status-texto-azul">DESLIGADO</span>
+      </div>
+      <div class="botoes-container">
+        <button id="btn-ligar-azul" class="btn btn-ligar">Ligar</button>
+        <button id="btn-desligar-azul" class="btn btn-desligar">Desligar</button>
+      </div>
     </div>
+
   </div>
 
   <script src="script.js"></script>
