@@ -1,0 +1,89 @@
+   body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #252526;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #3c3c3c;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #cccccc;
+  }
+  
+  .led {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 3px solid #111111;
+  }
+  
+  .led.desligado {
+    background-color: #dc3545;
+    color: #ffffff;
+    box-shadow: 0 0 20px #dc3545, inset 0 0 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  .led.ligado {
+    background-color: #28a745;
+    color: #ffffff;
+    box-shadow: 0 0 20px #28a745, inset 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+  
+  .botoes-container {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  .btn:active {
+    transform: scale(0.96);
+  }
+  
+  .btn-ligar {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn-ligar:hover {
+    background-color: #218838;
+  }
+  
+  .btn-desligar {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .btn-desligar:hover {
+    background-color: #c82333;
+  }

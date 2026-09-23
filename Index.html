@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Status da Placa Física</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Controle da Placa</h2>
+
+    <div id="status-led" class="led desligado">
+      <span id="status-texto">DESLIGADO</span>
+    </div>
+
+    <div class="botoes-container">
+      <button id="btn-ligar" class="btn btn-ligar">Ligar</button>
+      <button id="btn-desligar" class="btn btn-desligar">Desligar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
